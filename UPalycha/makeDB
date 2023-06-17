@@ -1,0 +1,62 @@
+create table poduct(
+    id int primary key,
+    prod_name varchar,
+    price int
+);
+
+CREATE table user(
+    id integer primary key,
+    name varchar(100),
+    password varchar(258)
+);
+
+
+create table employee(
+    id int primary key,
+    fio varchar,
+    login varchar,
+    password varchar,
+    role int
+);
+
+create table dish(
+    id int primary key,
+    dish_name varchar,
+    productID int,
+    grams int,
+    price int,
+    desc varchar,
+    time int,
+    foreign key (productID) references product (id)
+)
+;
+create table journal(
+    id int primary key,
+    wd varchar,
+    who varchar
+);
+
+create table warehouse(
+    id int primary key,
+    count int,
+    productID int,
+    foreign key (productID) references product (id)
+);
+
+
+create table apps(
+    id int primary key,
+    productID int,
+    count int,
+    foreign key (productID) references product (id)
+);
+
+create table orders(
+    id int primary key,
+    dishID int,
+    status int,
+    foreign key (dishID) references dish (id)
+)
+
+
+
